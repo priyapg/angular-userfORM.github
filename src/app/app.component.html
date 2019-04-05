@@ -1,0 +1,48 @@
+<div class="container">
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    Home:
+  </div>
+  <div class= "card-body">
+<form #userForm ="ngForm" (ngSubmit)="onSubmit(userForm)">
+ 
+  <div class="form-group row">
+  <label class="col-sm-2 col-form-label" >Username:  </label>
+  <div class="col-sm-10">
+  <input type="text" id="un" name="username" [(ngModel)]="username" class="mr-2"  >
+    <button type="button" value="go" class="btn-primary ">Go</button>
+  </div>
+  </div>
+   <div class="form-group row">
+  <label class="col-sm-2 col-form-label">Project:  </label>
+  <div class="col-sm-10">
+  <select id="project" name="project" [(ngModel)]="project" style="width:170px;">
+  <option *ngFor= "let project of projects" [value]= "project.id">{{project.name}}</option>
+  </select>
+  </div>
+  </div>
+   <div class="form-group row">
+  <label class="col-sm-2 col-form-label">Build:  </label>
+  <div class="col-sm-10">
+  <select id="build" name="build" [(ngModel)]="build" style="width:170px;">
+  <option *ngFor= "let build of builds" [value]= "build.id"  >{{build.name}}</option>
+  </select>
+  </div>
+  </div>
+   <div class="form-group row">
+  <label class="col-sm-2 col-form-label">Sub Build:  </label>
+  <div class="col-sm-10">
+  <select id="subBuild" name="subBuild" [(ngModel)]="subBuild" style="width:170px;">
+  <option *ngFor= "let subBuild of subBuilds" [value]= "subBuild.id"  >{{subBuild.name}}</option>
+  </select>
+  </div>
+  </div>
+  <button type="button" class="btn-primary mr-2" (click)="onCancel(userForm)">Cancel</button>
+   <button type="submit" class="btn-primary" >Submit</button>
+ 
+</form>
+</div>
+</div>
+</div>
+
+User data : {{userForm.value | json}}
